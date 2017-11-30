@@ -42,7 +42,8 @@ const query = {
   },
 };
 @connect(state => ({
-  user: state.user
+  currentUser: state.user.currentUser,
+  collapsed:state.global.collapsed,
 }))
 export default class BasicLayout extends React.PureComponent {
   static childContextTypes = {
@@ -51,7 +52,6 @@ export default class BasicLayout extends React.PureComponent {
   }
   constructor(props) {
     super(props);
-    console.log('=====',props);
     // 把一级 Layout 的 children 作为菜单项
     this.menus = getNavData().reduce((arr, current) => arr.concat(current.children), []);
     this.state = {
@@ -122,7 +122,7 @@ export default class BasicLayout extends React.PureComponent {
       return [];
     }
     return menusData.map((item) => {
-      if (!item.name) {
+      if (!item.name || item.hide) {
         return null;
       }
       let itemPath;
@@ -232,8 +232,7 @@ export default class BasicLayout extends React.PureComponent {
     window.dispatchEvent(event);
   }
   render() {
-    // const { currentUser, collapsed } = this.props;
-    console.log('render=====',this.props);
+    const { currentUser, collapsed } = this.props;
     const menu = (
       <Menu className={styles.menu} selectedKeys={[]} onClick={this.onMenuClick}>
         <Menu.Item key="logout"><Icon type="logout" />退出登录</Menu.Item>

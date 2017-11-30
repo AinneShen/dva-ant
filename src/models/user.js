@@ -6,9 +6,7 @@ export default {
   state: {
     list: [],
     loading: false,
-    currentUser: {
-      name: 'Annie'
-    },
+    currentUser: {}
   },
 
   effects: {
@@ -29,7 +27,6 @@ export default {
     },
     *fetchCurrent(_, { call, put }) {
       const response = yield call(queryCurrent);
-      console.log('errrrrrrrrrrrrrrrrr',response);
       yield put({
         type: 'saveCurrentUser',
         payload: response,

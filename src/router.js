@@ -26,7 +26,6 @@ function getRouteData(navData, path) {
 }
 
 function getLayout(navData, path) {
-  console.log('===========',navData);
   if (!navData.some(item => item.layout === path) ||
     !(navData.filter(item => item.layout === path)[0].children)) {
     return null;
@@ -41,9 +40,8 @@ function getLayout(navData, path) {
 }
 
 function RouterConfig({ history, app }) {
-  console.log('===',app);
   const navData = getNavData(app);
-  // const UserLayout = getLayout(navData, 'UserLayout').component;
+  const UserLayout = getLayout(navData, 'UserLayout').component;
   const BasicLayout = getLayout(navData, 'BasicLayout').component;
 
   const passProps = {

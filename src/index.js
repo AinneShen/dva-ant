@@ -3,6 +3,7 @@ import dva from 'dva';
 import 'moment/locale/zh-cn';
 import './g2';
 import './rollbar';
+import models from './models';
 import browserHistory from 'history/createBrowserHistory';
 import './index.less';
 import router from './router';
@@ -16,9 +17,9 @@ const app = dva({
 // app.use({});
 
 // 3. Register global model
-app.model(require('./models/global'));
-
-app.model(require("./models/notice"));
+models.forEach((m) => {
+  app.model(m);
+});
 
 // 4. Router
 app.router(router);

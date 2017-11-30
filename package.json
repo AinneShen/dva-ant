@@ -25,9 +25,12 @@
     "classnames": "^2.2.5",
     "core-js": "^2.5.1",
     "dva": "^2.1.0",
+    "form-data": "^2.3.1",
     "g-cloud": "^1.0.2-beta",
     "g2": "^2.3.13",
     "g2-plugin-slider": "^1.2.1",
+    "isomorphic-fetch": "^2.2.1",
+    "simple-sha1": "^2.1.0",
     "lodash": "^4.17.4",
     "lodash-decorators": "^4.4.1",
     "lodash.clonedeep": "^4.5.0",
@@ -39,7 +42,9 @@
     "react-container-query": "^0.9.1",
     "react-document-title": "^2.0.3",
     "react-dom": "^16.0.0",
-    "react-fittext": "^1.0.0"
+    "react-fittext": "^1.0.0",
+    "universal-cookie": "^2.1.0",
+    "md5": "^2.2.1"
   },
   "devDependencies": {
     "babel-eslint": "^8.0.1",

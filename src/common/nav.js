@@ -1,7 +1,11 @@
 import dynamic from 'dva/dynamic';
 import BasicLayout from '../layouts/BasicLayout';
+import UserLayout from '../layouts/UserLayout';
 
 import Notice from '../routes/Notice/Notice';
+import Login from '../routes/User/Login';
+import Register from '../routes/User/Register';
+import RegisterResult from '../routes/User/RegisterResult';
 
 // nav data
 const data = [
@@ -166,45 +170,35 @@ const data = [
       // },
     ],
   },
-  // {
-  //   component: dynamicWrapper(app, [], () => import('../layouts/UserLayout')),
-  //   path: '/user',
-  //   layout: 'UserLayout',
-  //   children: [
-  //     {
-  //       name: '帐户',
-  //       icon: 'user',
-  //       path: 'user',
-  //       children: [
-  //         {
-  //           name: '登录',
-  //           path: 'login',
-  //           component: dynamicWrapper(app, ['login'], () => import('../routes/User/Login')),
-  //         },
-  //         {
-  //           name: '注册',
-  //           path: 'register',
-  //           component: dynamicWrapper(app, ['register'], () => import('../routes/User/Register')),
-  //         },
-  //         {
-  //           name: '注册结果',
-  //           path: 'register-result',
-  //           component: dynamicWrapper(app, [], () => import('../routes/User/RegisterResult')),
-  //         },
-  //       ],
-  //     },
-  //   ],
-  // },
-  // {
-  //   component: dynamicWrapper(app, [], () => import('../layouts/BlankLayout')),
-  //   layout: 'BlankLayout',
-  //   children: {
-  //     name: '使用文档',
-  //     path: 'http://pro.ant.design/docs/getting-started',
-  //     target: '_blank',
-  //     icon: 'book',
-  //   },
-  // },
+  {
+    component: UserLayout,
+    layout: 'UserLayout',
+    children: [
+      {
+        name: '用户',
+        icon: 'user',
+        path: 'user',
+        hide: true,
+        children: [
+          {
+            name: '登录',
+            path: 'login',
+            component: Login,
+          },
+          {
+            name: '注册',
+            path: 'register',
+            component: Register,
+          },
+          {
+            name: '注册结果',
+            path: 'register-result',
+            component: RegisterResult,
+          },
+        ],
+      },
+    ],
+  }
 ];
 
 export function getNavData() {

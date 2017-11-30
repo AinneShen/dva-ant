@@ -30,44 +30,7 @@ const proxy = {
     },
   },
   // GET POST 可省略
-  'GET /api/users': [{
-    key: '1',
-    name: 'John Brown',
-    age: 32,
-    address: 'New York No. 1 Lake Park',
-  }, {
-    key: '2',
-    name: 'Jim Green',
-    age: 42,
-    address: 'London No. 1 Lake Park',
-  }, {
-    key: '3',
-    name: 'Joe Black',
-    age: 32,
-    address: 'Sidney No. 1 Lake Park',
-  }],
-  'GET /api/project/notice': getNotice,
   'GET /api/activities': getActivities,
-  'GET /api/rule': getRule,
-  'POST /api/rule': {
-    $params: {
-      pageSize: {
-        desc: '分页',
-        exp: 2,
-      },
-    },
-    $body: postRule,
-  },
-  'POST /api/forms': (req, res) => {
-    res.send({ message: 'Ok' });
-  },
-  'GET /api/tags': mockjs.mock({
-    'list|100': [{ name: '@city', 'value|1-100': 150, 'type|0-2': 1 }]
-  }),
-  'GET /api/fake_list': getFakeList,
-  'GET /api/fake_chart_data': getFakeChartData,
-  'GET /api/profile/basic': getProfileBasicData,
-  'GET /api/profile/advanced': getProfileAdvancedData,
   'POST /api/login/account': (req, res) => {
     const { password, userName } = req.body;
     res.send({ status: password === '888888' && userName === 'admin' ? 'ok' : 'error', type: 'account' });

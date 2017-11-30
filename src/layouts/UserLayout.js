@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, Route } from 'dva/router';
 import DocumentTitle from 'react-document-title';
+import { getRouteData } from '../utils/utils';
 import { Icon } from 'antd';
 import GlobalFooter from '../components/GlobalFooter';
 import styles from './UserLayout.less';
@@ -28,9 +29,10 @@ class UserLayout extends React.PureComponent {
     return { location };
   }
   getPageTitle() {
-    const { getRouteData, location } = this.props;
+    const { location } = this.props;
     const { pathname } = location;
     let title = 'Ant Design Pro';
+    console.log(getRouteData('UserLayout'));
     getRouteData('UserLayout').forEach((item) => {
       if (item.path === pathname) {
         title = `${item.name} - Ant Design Pro`;
@@ -39,8 +41,6 @@ class UserLayout extends React.PureComponent {
     return title;
   }
   render() {
-    const { getRouteData } = this.props;
-
     return (
       <DocumentTitle title={this.getPageTitle()}>
         <div className={styles.container}>
