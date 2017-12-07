@@ -15,7 +15,7 @@ export default class Notice extends React.Component {
     })
   }
   render() {
-    const { notice: { notices }, dispatch } = this.props;
+    const { notice: { notices, loading }, dispatch } = this.props;
     console.log('=========',this.props);
     const columns = [
       {
@@ -54,6 +54,7 @@ export default class Notice extends React.Component {
       <PageHeaderLayout title="通知公告">
         <div className={styles.normal}>
           <Table
+            loading={loading}
             rowKey={record => record.id}
             dataSource={notices}
             columns={columns}

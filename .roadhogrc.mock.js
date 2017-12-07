@@ -6,6 +6,8 @@ import { imgMap } from './mock/utils';
 import { getProfileBasicData } from './mock/profile';
 import { getProfileAdvancedData } from './mock/profile';
 import { getNotices } from './mock/notices';
+import { cards } from './mock/cards';
+import { banners } from './mock/carousel'
 import { format, delay } from 'roadhog-api-doc';
 
 // 是否禁用代理
@@ -42,6 +44,8 @@ const proxy = {
     res.send({ status: 'ok' });
   },
   'GET /api/notices': getNotices,
+  'Get /api/cards': cards,
+  'Get /api/banners': banners,
 };
 
 export default noProxy ? {} : delay(proxy, 1000);
