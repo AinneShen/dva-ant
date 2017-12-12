@@ -7,7 +7,8 @@ import { Card, Spin, Avatar, Icon } from 'antd';
 const { Meta } = Card;
 
 @connect((state) => ({
-  analyze: state.analyze
+  analyze: state.analyze,
+  loading: state.loading.models.analyze
 }))
 export default class Analyze extends React.Component{
   componentDidMount(){
@@ -17,7 +18,7 @@ export default class Analyze extends React.Component{
     })
   }
   render() {
-    const { analyze } = this.props;
+    const { analyze, loading } = this.props;
     console.log('props',this.props);
     return (
       <div className={styles.normal}>
@@ -26,7 +27,7 @@ export default class Analyze extends React.Component{
               analyze.cards.map((item)=>{
                   return (
                     <Card
-                      loading={analyze.loading}
+                      loading={loading}
                       key={item.id}
                       hoverable
                       title={item.title}
@@ -38,7 +39,7 @@ export default class Analyze extends React.Component{
               })
             }
             <Card
-              loading={analyze.loading}
+              loading={loading}
               hoverable
               style={{ width: 240 }}
               cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}

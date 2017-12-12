@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'dva';
-import { Table } from 'antd'
+import { Table, Modal } from 'antd'
 import styles from './Notice.less';
 import PageHeaderLayout from '../../layouts/PageHeaderLayout';
 
 @connect(state => ({
   notice: state.notice,
+  // loading: state.loading.global
 }))
 export default class Notice extends React.Component {
   componentDidMount(){
@@ -15,7 +16,7 @@ export default class Notice extends React.Component {
     })
   }
   render() {
-    const { notice: { notices, loading }, dispatch } = this.props;
+    const { notice: { notices, editModalVisible, loading }, dispatch } = this.props;
     console.log('=========',this.props);
     const columns = [
       {
@@ -43,7 +44,7 @@ export default class Notice extends React.Component {
         title: '操作',
         render: (val) => (
           <p>
-            <a href="javascript:void(0)" >编辑</a>
+            <a href="javascript:void(0)" onClick={() => dispatch({type: 'notice/showModal'})}>编辑</a>
             <span className={styles.splitLine} />
             <a href="javascript:void(0)" >查看</a>
           </p>
@@ -59,6 +60,13 @@ export default class Notice extends React.Component {
             dataSource={notices}
             columns={columns}
           />
+          <Modal title="Title"
+             visible={editModalVisible}
+             onOk={() => dispatch({type: 'notice/hideModal'})}
+             onCancel={() => dispatch({type: 'notice/hideModal'})}
+           >
+             <p>文字文字文字</p>
+           </Modal>
         </div>
       </PageHeaderLayout>
     );

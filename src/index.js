@@ -1,5 +1,6 @@
 import 'babel-polyfill';
 import dva from 'dva';
+import createLoading from 'dva-loading';
 import 'moment/locale/zh-cn';
 import './g2';
 import './rollbar';
@@ -14,7 +15,7 @@ const app = dva({
 });
 
 // 2. Plugins
-// app.use({});
+app.use(createLoading());
 
 // 3. Register global model
 models.forEach((m) => {
