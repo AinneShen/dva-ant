@@ -11,6 +11,7 @@ import Avatar from '../routes/Avatar/Avatar';
 import Carousel from '../routes/Carousel/Carousel';
 import Upload from '../routes/Upload/Upload';
 import Layout from '../routes/Layout/Layout';
+import Test from '../routes/Test/Test';
 
 // nav data
 const data = [
@@ -55,6 +56,12 @@ const data = [
         path: 'layout',
         icon: 'appstore',
         component: Layout,
+      },
+      {
+        name: '测试页',
+        path: 'test',
+        icon: 'smile-o',
+        component: Test,
       },
     ],
   },

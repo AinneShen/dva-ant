@@ -3,6 +3,7 @@ import { connect } from 'dva';
 import PageHeaderLayout from '../../layouts/PageHeaderLayout';
 import { Avatar, Badge } from 'antd';
 import styles from './Avatar.less';
+import CustomerForm from '../../components/CustomerForm'
 
 export default class Touxiang extends React.Component {
   render() {
@@ -27,6 +28,10 @@ export default class Touxiang extends React.Component {
         <div className={styles.threeDiv}>
           <Badge count={2}><Avatar shape="square" icon='user' /></Badge>
           <Badge dot><Avatar shape="square" icon='user' /></Badge>
+        </div>
+        <CustomerForm />
+        <div className={styles.testDiv}>
+          wenziwenzi文字文字iwenziwenzi文字文字iwenziwenzi文字文字iwenziwenzi文字文字iwenziwenzi文字文字iwenziwenzi文字文字iwenziwenzi文字文字iwenziwenzi文字文字iwenziwenzi文字文字iwenziwenzi文字文字iwenziwenzi文字文字iwenziwenzi文字文字iwenziwenzi文字文字i
         </div>
       </PageHeaderLayout>
     )

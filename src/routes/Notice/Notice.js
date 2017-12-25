@@ -1,4 +1,5 @@
 import React from 'react';
+import Immutable from 'immutable';
 import { connect } from 'dva';
 import { Table, Modal } from 'antd'
 import styles from './Notice.less';
